@@ -1,0 +1,12 @@
+
+> new_next_app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 651ms
+
+○ Compiling / ...
+ GET / 200 in 5.9s (next.js: 5.5s, application-code: 461ms)
+ GET /api/deals? 200 in 1446ms (next.js: 1416ms, application-code: 30ms)
