@@ -25,11 +25,19 @@ export default function PipelineTable({ deals, onDealClick }: PipelineTableProps
 
   const sortedDeals = useMemo(() => {
     if (!sortField) return deals;
+<<<<<<< Updated upstream
 
     return [...deals].sort((a, b) => {
       const aVal = a[sortField];
       const bVal = b[sortField];
 
+=======
+
+    return [...deals].sort((a, b) => {
+      const aVal = a[sortField];
+      const bVal = b[sortField];
+
+>>>>>>> Stashed changes
       if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
       if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
       return 0;
@@ -67,8 +75,13 @@ export default function PipelineTable({ deals, onDealClick }: PipelineTableProps
           </thead>
           <tbody>
             {sortedDeals.map((deal) => (
+<<<<<<< Updated upstream
               <tr
                 key={deal.id}
+=======
+              <tr
+                key={deal.id}
+>>>>>>> Stashed changes
                 className="bg-white border-b hover:bg-[#F7F6F6] cursor-pointer transition-colors"
                 onClick={() => onDealClick(deal)}
               >
@@ -101,8 +114,13 @@ export default function PipelineTable({ deals, onDealClick }: PipelineTableProps
                   <div className="flex flex-col items-center">
                     <span className="text-xs text-gray-500 mb-1">{deal.files_logged} / {deal.expected_files}</span>
                     <div className="w-16 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+<<<<<<< Updated upstream
                       <div
                         className={`h-full ${deal.dataroom_status === 'complete' ? 'bg-green-500' : deal.dataroom_status === 'partial' ? 'bg-yellow-500' : 'bg-transparent'}`}
+=======
+                      <div
+                        className={`h-full ${deal.dataroom_status === 'complete' ? 'bg-green-500' : deal.dataroom_status === 'partial' ? 'bg-yellow-500' : 'bg-transparent'}`}
+>>>>>>> Stashed changes
                         style={{ width: `${deal.expected_files ? (deal.files_logged / deal.expected_files) * 100 : 0}%` }}
                       ></div>
                     </div>

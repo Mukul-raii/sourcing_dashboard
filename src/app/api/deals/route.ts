@@ -104,6 +104,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const stageFilter = searchParams.get('stage');
   const searchFilter = searchParams.get('search');
+<<<<<<< Updated upstream
 
   let result = [...mockDeals];
 
@@ -115,6 +116,19 @@ export async function GET(request: Request) {
     const s = searchFilter.toLowerCase();
     result = result.filter(d =>
       d.company_name.toLowerCase().includes(s) ||
+=======
+
+  let result = [...mockDeals];
+
+  if (stageFilter) {
+    result = result.filter(d => d.stage === stageFilter);
+  }
+
+  if (searchFilter) {
+    const s = searchFilter.toLowerCase();
+    result = result.filter(d =>
+      d.company_name.toLowerCase().includes(s) ||
+>>>>>>> Stashed changes
       d.founder_name.toLowerCase().includes(s)
     );
   }

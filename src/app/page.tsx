@@ -11,7 +11,11 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<'kanban' | 'table'>('kanban');
   const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null);
+<<<<<<< Updated upstream
 
+=======
+
+>>>>>>> Stashed changes
   // Filter states
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStage, setSelectedStage] = useState('');
@@ -50,7 +54,11 @@ export default function Home() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
+<<<<<<< Updated upstream
           <select
+=======
+          <select
+>>>>>>> Stashed changes
             className="border border-gray-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:border-brand-yellow bg-white"
             value={selectedStage}
             onChange={(e) => setSelectedStage(e.target.value)}
@@ -66,15 +74,25 @@ export default function Home() {
             <option value="Passed">Passed</option>
           </select>
         </div>
+<<<<<<< Updated upstream
 
         <div className="flex bg-gray-100 p-1 rounded-lg">
           <button
+=======
+
+        <div className="flex bg-gray-100 p-1 rounded-lg">
+          <button
+>>>>>>> Stashed changes
             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${viewMode === 'kanban' ? 'bg-white shadow text-brand-navy' : 'text-gray-500 hover:text-brand-navy'}`}
             onClick={() => setViewMode('kanban')}
           >
             Kanban
           </button>
+<<<<<<< Updated upstream
           <button
+=======
+          <button
+>>>>>>> Stashed changes
             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${viewMode === 'table' ? 'bg-white shadow text-brand-navy' : 'text-gray-500 hover:text-brand-navy'}`}
             onClick={() => setViewMode('table')}
           >
@@ -101,9 +119,15 @@ export default function Home() {
       {/* Slide-in Panel */}
       {selectedDeal && (
         <>
+<<<<<<< Updated upstream
           <div
             className="fixed inset-0 bg-black/20 z-40 transition-opacity"
             onClick={() => setSelectedDeal(null)}
+=======
+          <div
+            className="fixed inset-0 bg-black/20 z-40 transition-opacity"
+            onClick={() => setSelectedDeal(null)}
+>>>>>>> Stashed changes
           />
           <DealDetailPanel deal={selectedDeal} onClose={() => setSelectedDeal(null)} />
         </>

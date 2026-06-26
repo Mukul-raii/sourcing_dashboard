@@ -10,6 +10,8 @@
 ○ Compiling / ...
  GET / 200 in 5.9s (next.js: 5.5s, application-code: 461ms)
  GET /api/deals? 200 in 1446ms (next.js: 1416ms, application-code: 30ms)
+<<<<<<< Updated upstream
+=======
 ✓ Compiled in 2.5s
  GET /log-monitor 200 in 2.1s (next.js: 1745ms, application-code: 399ms)
  GET /api/workflows 200 in 675ms (next.js: 652ms, application-code: 23ms)
@@ -26,3 +28,4 @@
  GET /api/errors 200 in 6ms (next.js: 2ms, application-code: 4ms)
  GET /api/retries/pending 200 in 254ms (next.js: 246ms, application-code: 8ms)
  GET /api/retries/pending 200 in 11ms (next.js: 5ms, application-code: 6ms)
+>>>>>>> Stashed changes

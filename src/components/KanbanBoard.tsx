@@ -26,24 +26,40 @@ export default function KanbanBoard({ deals, onDealClick }: KanbanBoardProps) {
     <div className="flex h-full gap-4 overflow-x-auto pb-4">
       {STAGES.map(stage => {
         const stageDeals = getDealsByStage(stage);
+<<<<<<< Updated upstream
 
+=======
+
+>>>>>>> Stashed changes
         return (
           <div key={stage} className="flex-shrink-0 w-80 flex flex-col bg-gray-100 rounded-md p-3">
             <div className="flex justify-between items-center mb-4 px-1">
               <h3 className="font-bold text-sm text-[#1A2340] uppercase tracking-wide">{stage}</h3>
               <span className="text-xs bg-gray-300 px-2 py-0.5 rounded-full font-medium">{stageDeals.length}</span>
             </div>
+<<<<<<< Updated upstream
 
             <div className="flex-1 overflow-y-auto space-y-3 pr-1">
               {stageDeals.map(deal => (
                 <div
                   key={deal.id}
+=======
+
+            <div className="flex-1 overflow-y-auto space-y-3 pr-1">
+              {stageDeals.map(deal => (
+                <div
+                  key={deal.id}
+>>>>>>> Stashed changes
                   onClick={() => onDealClick(deal)}
                   className="bg-white p-4 rounded shadow-sm cursor-pointer hover:shadow-md hover:border-[#F9A822] border border-transparent transition-all"
                 >
                   <h4 className="font-bold text-[#1A2340] mb-1">{deal.company_name}</h4>
                   <p className="text-xs text-gray-500 mb-3">{deal.founder_name} &middot; {deal.email}</p>
+<<<<<<< Updated upstream
 
+=======
+
+>>>>>>> Stashed changes
                   <div className="flex justify-between items-center">
                     <span className={`text-xs font-bold px-2 py-1 rounded ${
                       deal.overall_score >= 7 ? 'bg-green-100 text-green-800' :
@@ -55,7 +71,11 @@ export default function KanbanBoard({ deals, onDealClick }: KanbanBoardProps) {
                     <span className="text-xs font-medium px-2 py-1 bg-gray-100 rounded-full">
                       {deal.verdict_recommendation}
                     </span>
+<<<<<<< Updated upstream
 
+=======
+
+>>>>>>> Stashed changes
                     <div className="flex items-center gap-1" title={`Data Room: ${deal.dataroom_status}`}>
                       <div className={`w-2.5 h-2.5 rounded-full ${
                         deal.dataroom_status === 'complete' ? 'bg-green-500' :
