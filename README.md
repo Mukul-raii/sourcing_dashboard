@@ -1,94 +1,36 @@
-# n8n Expression Syntax
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Expert guide for writing correct n8n expressions in workflows.
+## Getting Started
 
----
+First, run the development server:
 
-## Purpose
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Teaches correct n8n expression syntax ({{ }} patterns) and fixes common mistakes, especially the critical webhook data structure gotcha.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Activates On
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- expression
-- {{}} syntax
-- $json, $node, $now, $env
-- webhook data
-- troubleshoot expression error
-- undefined in workflow
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## File Count
+## Learn More
 
-4 files, ~450 lines total
+To learn more about Next.js, take a look at the following resources:
 
-## Dependencies
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-**n8n-mcp tools**:
-- None directly (syntax knowledge skill)
-- Works with n8n-mcp validation tools
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-**Related skills**:
-- n8n Workflow Patterns (uses expressions in examples)
-- n8n MCP Tools Expert (validates expressions)
-- n8n Node Configuration (when expressions are needed)
+## Deploy on Vercel
 
-## Coverage
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Core Topics
-- Expression format ({{ }})
-- Core variables ($json, $node, $now, $env)
-- **Webhook data structure** ($json.body.*)
-- When NOT to use expressions (Code nodes)
-
-### Common Patterns
-- Accessing nested fields
-- Referencing other nodes
-- Array and object access
-- Date/time formatting
-- String manipulation
-
-### Error Prevention
-- 15 common mistakes with fixes
-- Quick reference table
-- Debugging process
-
-## Evaluations
-
-4 scenarios (100% coverage expected):
-1. **eval-001**: Missing curly braces
-2. **eval-002**: Webhook body data access (critical!)
-3. **eval-003**: Code node vs expression confusion
-4. **eval-004**: Node reference syntax
-
-## Key Features
-
-✅ **Critical Gotcha Highlighted**: Webhook data under `.body`
-✅ **Real Examples**: From MCP testing and real templates
-✅ **Quick Fixes Table**: Fast reference for common errors
-✅ **Code vs Expression**: Clear distinction
-✅ **Comprehensive**: Covers 95% of expression use cases
-
-## Files
-
-- **SKILL.md** (285 lines) - Main content with all essential knowledge
-- **COMMON_MISTAKES.md** (380 lines) - Complete error catalog with 15 common mistakes
-- **EXAMPLES.md** (450 lines) - 10 real working examples
-- **README.md** (this file) - Skill metadata
-
-## Success Metrics
-
-**Expected outcomes**:
-- Users correctly wrap expressions in {{ }}
-- Zero webhook `.body` access errors
-- No expressions used in Code nodes
-- Correct $node reference syntax
-
-## Last Updated
-
-2025-10-20
-
----
-
-**Part of**: n8n-skills repository
-**Conceived by**: Romuald Członkowski - [www.aiadvisors.pl/en](https://www.aiadvisors.pl/en)
-# sourcing_dashboard
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
