@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from 'next/link';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,8 +21,11 @@ export default function RootLayout({
             <div className="w-8 h-8 rounded bg-[#F9A822] flex items-center justify-center font-bold text-[#1A2340]">NB</div>
             <h1 className="text-xl font-bold">Deal Pipeline</h1>
           </div>
-          <nav>
-            <span className="text-sm">Power of Community</span>
+          <nav className="flex items-center gap-6">
+            <Link href="/" className="text-sm font-medium hover:text-[#F9A822] transition-colors">Pipeline</Link>
+            <Link href="/logs" className="text-sm font-medium hover:text-[#F9A822] transition-colors">Log Monitor</Link>
+            <Link href="/dataroom" className="text-sm font-medium hover:text-[#F9A822] transition-colors">Data Room</Link>
+            <span className="text-sm italic ml-4 opacity-75">Power of Community</span>
           </nav>
         </header>
         <main className="flex-1 overflow-hidden p-6">

@@ -4,17 +4,19 @@ import React, { useState, useEffect } from 'react';
 import KanbanBoard from '@/components/KanbanBoard';
 import PipelineTable from '@/components/PipelineTable';
 import DealDetailPanel from '@/components/DealDetailPanel';
+import CohortView from '@/components/CohortView';
 import { Deal } from './api/deals/route';
 
 export default function Home() {
   const [deals, setDeals] = useState<Deal[]>([]);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'kanban' | 'table'>('kanban');
+  const [viewMode, setViewMode] = useState<'kanban' | 'table' | 'cohort'>('kanban');
   const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null);
 
   // Filter states
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStage, setSelectedStage] = useState('');
+  const [selectedCohort, setSelectedCohort] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchDeals = async () => {
@@ -23,6 +25,7 @@ export default function Home() {
         const queryParams = new URLSearchParams();
         if (searchQuery) queryParams.append('search', searchQuery);
         if (selectedStage) queryParams.append('stage', selectedStage);
+        if (selectedCohort) queryParams.append('cohort', selectedCohort);
 
         const res = await fetch(`/api/deals?${queryParams.toString()}`);
         if (!res.ok) throw new Error('Failed to fetch deals');
@@ -36,7 +39,7 @@ export default function Home() {
     };
 
     fetchDeals();
-  }, [searchQuery, selectedStage]);
+  }, [searchQuery, selectedStage, selectedCohort]);
 
   return (
     <div className="h-full flex flex-col relative overflow-hidden">
@@ -80,6 +83,12 @@ export default function Home() {
           >
             Table
           </button>
+          <button
+            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${viewMode === 'cohort' ? 'bg-white shadow text-brand-navy' : 'text-gray-500 hover:text-brand-navy'}`}
+            onClick={() => setViewMode('cohort')}
+          >
+            Cohort
+          </button>
         </div>
       </div>
 
@@ -89,12 +98,18 @@ export default function Home() {
           <div className="h-full flex items-center justify-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-yellow"></div>
           </div>
+        ) : viewMode === 'cohort' ? (
+          <div className="h-full overflow-auto">
+            {/* Using inline require to avoid circular dependencies for now or direct import */}
+            <CohortView
+              onCohortClick={(cohortId) => setSelectedCohort(cohortId)}
+              selectedCohort={selectedCohort}
+            />
+          </div>
+        ) : viewMode === 'kanban' ? (
+          <KanbanBoard deals={deals} onDealClick={setSelectedDeal} />
         ) : (
-          viewMode === 'kanban' ? (
-            <KanbanBoard deals={deals} onDealClick={setSelectedDeal} />
-          ) : (
-            <PipelineTable deals={deals} onDealClick={setSelectedDeal} />
-          )
+          <PipelineTable deals={deals} onDealClick={setSelectedDeal} />
         )}
       </div>
 
